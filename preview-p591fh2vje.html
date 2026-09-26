@@ -36,9 +36,9 @@ nav.scrolled{background:rgba(22,27,36,.82);backdrop-filter:blur(14px);-webkit-ba
 .navlinks a:hover{color:var(--text)}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:transform .3s,box-shadow .3s,background .3s;cursor:pointer;border:none}
 .btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 45%,var(--goldd));color:#1a1206;box-shadow:0 10px 30px -10px rgba(217,178,106,.5)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(217,178,106,.7)}
+.btn-gold:hover{transform:translateY(-2px);background:linear-gradient(135deg,#fff4d6,var(--gold2) 45%,var(--gold));box-shadow:0 18px 40px -12px rgba(217,178,106,.7)}
 .btn-ghost{border:1px solid rgba(217,178,106,.4);color:var(--gold2);background:transparent}
-.btn-ghost:hover{background:rgba(217,178,106,.08)}
+.btn-ghost:hover{background:var(--gold);border-color:var(--gold);color:#1a1206;transform:translateY(-2px)}
 .navlinks .btn{padding:10px 20px;font-size:11px}
 .navlinks a.btn-gold{color:#1a1206}
 @media(max-width:760px){.navlinks a:not(.btn){display:none}}
@@ -117,9 +117,11 @@ section.block{padding:clamp(90px,14vw,160px) clamp(16px,6vw,90px);max-width:1280
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
 .plan{display:flex;flex-direction:column}.plan ul{flex:1}
 .price b{font-size:58px!important}.plan h3{font-size:30px!important}.plan{padding:40px 30px!important}
+.plan>*{position:relative;z-index:1}
+.plan .badge{position:absolute!important}
 .plan .kind{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 .plan{position:relative;padding:44px 38px;border-radius:26px;background:linear-gradient(170deg,#252d3c,#1a202b);border:1px solid var(--line);transform-style:preserve-3d;transition:border-color .4s;overflow:hidden}
-.plan::before{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(217,178,106,.13),transparent 40%);opacity:0;transition:opacity .4s}
+.plan::before{pointer-events:none;content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(217,178,106,.13),transparent 40%);opacity:0;transition:opacity .4s}
 .plan:hover{border-color:rgba(217,178,106,.35)}
 .plan:hover::before{opacity:1}
 .plan.feat{border-color:rgba(217,178,106,.35)}
@@ -176,6 +178,51 @@ details p{color:var(--muted);margin-top:14px;max-width:760px}
 footer{border-top:1px solid var(--line);padding:34px clamp(16px,4vw,48px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:#9d978b;letter-spacing:.05em}
 footer a:hover{color:var(--gold2)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.hero h1 .w,.hero p.lead,.hero .ctas{opacity:1;transform:none}}
+
+/* buy + modals */
+.plan .btn{justify-content:center;width:100%}
+.plan .ask{display:block;text-align:center;margin-top:12px;font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.plan .ask:hover{color:var(--gold2)}
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(8,10,14,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal.open{display:flex}
+.mbox{position:relative;width:min(560px,100%);max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:linear-gradient(170deg,#252d3c,#1a202b);border:1px solid rgba(217,178,106,.3);border-radius:22px;box-shadow:0 40px 100px -30px rgba(0,0,0,.9);overflow:hidden}
+.mbox.wide{width:min(760px,100%)}
+.mhead{padding:26px 28px 14px}
+.mhead h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.1;margin-top:8px}
+.mbody{padding:0 28px 24px;overflow:auto}
+.mfoot{padding:18px 28px 24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.mclose{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:20px;cursor:pointer;transition:background .3s,color .3s}
+.mclose:hover{background:var(--gold);color:#1a1206}
+.sum{display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px;border:1px solid var(--line);border-radius:14px;margin:6px 0 18px}
+.sum b{font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold2)}
+.sum span{color:var(--muted);font-size:13px}
+.mbody p{color:var(--muted);font-size:14.5px}
+.mbody p+p{margin-top:10px}
+.agree{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px dashed rgba(217,178,106,.45);border-radius:14px;cursor:pointer;font-size:14.5px;color:#e8e0cf;transition:background .3s}
+.agree:hover{background:rgba(217,178,106,.08)}
+.agree .box{flex:0 0 22px;height:22px;border-radius:6px;border:1.5px solid var(--gold);display:grid;place-items:center;color:#1a1206;font-size:14px;font-weight:700;margin-top:1px}
+.agree.done .box{background:var(--gold)}
+.agree u{color:var(--gold2)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none}
+.hint{font-size:12px;color:var(--muted);text-align:center}
+.terms-scroll{height:min(58vh,560px);overflow:auto;padding:4px 28px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.terms-scroll h1{font-family:var(--serif);font-weight:400;font-size:34px;margin:18px 0 4px}
+.terms-scroll h2{font-family:var(--serif);font-weight:500;font-size:23px;margin:26px 0 8px;color:var(--gold2)}
+.terms-scroll p,.terms-scroll li{color:#d6d2c8;font-size:14.5px;line-height:1.7}
+.terms-scroll ul{padding-left:20px;display:grid;gap:6px}
+.terms-scroll .eyebrow,.terms-scroll h1{display:none}
+.terms-scroll .updated{margin-top:18px;color:var(--muted);font-size:13px}
+.terms-scroll .summary{border:1px solid rgba(217,178,106,.3);background:rgba(217,178,106,.05);border-radius:14px;padding:16px 18px;margin:16px 0}
+.terms-scroll .summary h2{margin-top:0}
+.terms-scroll strong{color:var(--text);font-weight:500}
+.terms-scroll a{color:var(--gold2)}
+.tbar{height:3px;background:var(--line)}
+.tbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--goldd),var(--gold2))}
+.formframe{width:100%;height:min(62vh,640px);border:0;border-radius:12px;background:#fff}
+.steps2{display:grid;gap:8px;margin:4px 0 16px;counter-reset:s}
+.steps2 li{list-style:none;color:#d6d2c8;font-size:14px;display:flex;gap:10px}
+.steps2 li::before{counter-increment:s;content:counter(s);flex:0 0 22px;height:22px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-size:12px;display:grid;place-items:center}
+@media(max-width:600px){.mhead{padding:22px 20px 12px}.mbody,.mfoot{padding-left:20px;padding-right:20px}.terms-scroll{padding:4px 20px 20px}.mhead h3{font-size:27px}}
 </style>
 </head>
 <body>
@@ -255,7 +302,8 @@ footer a:hover{color:var(--gold2)}
           <li>Hosting, updates and a monthly check</li>
           <li>Your own login to edit your site anytime</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:cam.localmarketing@gmail.com?subject=Website">Ask about this</a>
+        <button type="button" class="btn btn-ghost" data-plan="website">Get this package</button>
+        <a class="ask" href="mailto:cam.localmarketing@gmail.com?subject=Website">Questions? Ask me first</a>
         <div class="fine">No setup fee. 3-month minimum once your site is live, then month-to-month.</div>
       </div>
       <div class="plan reveal d2">
@@ -268,7 +316,8 @@ footer a:hover{color:var(--gold2)}
           <li>Replies to every review, approved by you first</li>
           <li>Photo, hours and specials updates anytime</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:cam.localmarketing@gmail.com?subject=Local%20Presence%20Add-On">Ask about this</a>
+        <button type="button" class="btn btn-ghost" data-plan="addon">Get this package</button>
+        <a class="ask" href="mailto:cam.localmarketing@gmail.com?subject=Local%20Presence%20Add-On">Questions? Ask me first</a>
         <div class="fine">Added to the Website plan. Cancel anytime.</div>
       </div>
       <div class="plan feat reveal d3">
@@ -282,7 +331,8 @@ footer a:hover{color:var(--gold2)}
           <li>Priority changes, usually same day</li>
           <li>One simple monthly bill</li>
         </ul>
-        <a class="btn btn-gold" href="mailto:cam.localmarketing@gmail.com?subject=Complete%20Online%20Presence">Ask about this</a>
+        <button type="button" class="btn btn-gold" data-plan="complete">Get this package</button>
+        <a class="ask" href="mailto:cam.localmarketing@gmail.com?subject=Complete%20Online%20Presence">Questions? Ask me first</a>
         <div class="fine">Save $51 a month vs. buying separately. 3-month minimum once your site is live.</div>
       </div>
     </div>
@@ -322,9 +372,9 @@ footer a:hover{color:var(--gold2)}
       <p>Everything you need, in one place.</p>
     </div>
     <div class="hub">
-      <a class="reveal d1" href="https://docs.google.com/forms/d/156GNc6F0faFzaEb4pbDigQA14W1X7u8COW9QnZEnIrQ/viewform" target="_blank" rel="noopener"><div class="ic">Step 2</div><h6>New client setup</h6><p>The 5-minute questionnaire I use to build your profile and site.</p><div class="arrow">Open form →</div></a>
-      <a class="reveal d2" href="https://docs.google.com/forms/d/1o25e9C4_sv-HbMgoiKzXsMJ7i9OeiWARi30sdQ660xg/viewform" target="_blank" rel="noopener"><div class="ic">Anytime</div><h6>Specials &amp; changes</h6><p>Running a special, changing prices or hours? Tell me here.</p><div class="arrow">Request an update →</div></a>
-      <a class="reveal d3" href="https://docs.google.com/forms/d/1vAhmfyhd2umWIPd2U86nKDnaRjLC9hUTGUOdeyP3DkU/viewform" target="_blank" rel="noopener"><div class="ic">1 minute</div><h6>Give feedback</h6><p>Tell me what's working and what isn't. I read every one.</p><div class="arrow">Share feedback →</div></a>
+      <a class="reveal d1" href="#setup" data-form="setup"><div class="ic">Step 2</div><h6>New client setup</h6><p>The 5-minute questionnaire I use to build your profile and site.</p><div class="arrow">Open form →</div></a>
+      <a class="reveal d2" href="#changes" data-form="changes"><div class="ic">Anytime</div><h6>Specials &amp; changes</h6><p>Running a special, changing prices or hours? Tell me here.</p><div class="arrow">Request an update →</div></a>
+      <a class="reveal d3" href="#feedback" data-form="feedback"><div class="ic">1 minute</div><h6>Give feedback</h6><p>Tell me what's working and what isn't. I read every one.</p><div class="arrow">Share feedback →</div></a>
       <a class="reveal" href="https://billing.stripe.com/p/login/6oUdR2egtdJ37sz3QY8Vi00" target="_blank" rel="noopener"><div class="ic">Billing</div><h6>Manage subscription</h6><p>Update your card, download receipts, or cancel. No phone call needed.</p><div class="arrow">Open billing →</div></a>
     </div>
   </section>
@@ -451,6 +501,168 @@ footer a:hover{color:var(--gold2)}
       if(!reduce)pl.style.transform='perspective(900px) rotateY('+((mx-.5)*8)+'deg) rotateX('+((.5-my)*8)+'deg)'});
     pl.addEventListener('mouseleave',function(){pl.style.transform=''});
   });
+})();
+</script>
+
+<!-- checkout -->
+<div class="modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyTitle">
+  <div class="mbox">
+    <button class="mclose" data-close aria-label="Close">×</button>
+    <div class="mhead"><div class="eyebrow">Sign up</div><h3 id="buyTitle">Website</h3></div>
+    <div class="mbody" id="buyStep1">
+      <div class="sum"><div><b id="buyPrice">$300</b> <span>/ month</span></div><span id="buyNote">No setup fee</span></div>
+      <p id="buyDesc"></p>
+      <p style="margin-top:14px">Before you pay, please read and accept the Terms of Service.</p>
+    </div>
+    <div class="mbody" id="buyStep2" hidden>
+      <p><strong style="color:var(--text)">Your secure Stripe checkout opened in a new tab.</strong></p>
+      <p>Finish paying there. When you're done, come back to this tab. Your setup questionnaire will pop up here.</p>
+      <p>Tab didn't open? <a href="#" id="reopen" style="color:var(--gold2);text-decoration:underline">Open checkout again</a></p>
+    </div>
+    <div class="mfoot" id="buyFoot">
+      <div class="agree" id="agree" role="checkbox" aria-checked="false" tabindex="0"><div class="box" id="agreeBox"></div><div>I have read and agree to the <u>Terms of Service</u>.</div></div>
+      <button class="btn btn-gold" id="payBtn" disabled>Continue to secure payment</button>
+      <div class="hint" id="payHint">Opens Stripe checkout in a new tab. Cancel or change your plan anytime after the 3-month minimum.</div>
+    </div>
+  </div>
+</div>
+
+<!-- terms -->
+<div class="modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="mbox wide">
+    <button class="mclose" data-close aria-label="Close">×</button>
+    <div class="mhead"><div class="eyebrow">Please read</div><h3 id="termsTitle">Terms of Service</h3></div>
+    <div class="tbar"><i id="tbar"></i></div>
+    <div class="terms-scroll" id="termsScroll"><p style="padding-top:18px">Loading the Terms…</p></div>
+    <div class="mfoot">
+      <button class="btn btn-gold" id="acceptBtn" disabled>Scroll to the bottom to accept</button>
+    </div>
+  </div>
+</div>
+
+<!-- questionnaire / forms -->
+<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="mbox wide">
+    <button class="mclose" data-close aria-label="Close">×</button>
+    <div class="mhead"><div class="eyebrow" id="formEyebrow">Step 2</div><h3 id="formTitle">Tell me about your business</h3></div>
+    <div class="mbody">
+      <ol class="steps2" id="formSteps">
+        <li>Answer the questions (about 5 minutes).</li>
+        <li>Upload photos of your work, with a name, short description and price for each.</li>
+        <li>Hit Submit. I'll send you a draft of your site to approve.</li>
+      </ol>
+      <iframe class="formframe" id="formFrame" title="Form" loading="lazy"></iframe>
+    </div>
+    <div class="mfoot" style="flex-direction:row;flex-wrap:wrap">
+      <button class="btn btn-gold" id="formDone" style="flex:1">I've submitted it</button>
+      <button class="btn btn-ghost" data-close style="flex:1">Do this later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ---- SETTINGS: paste your live Stripe payment links here ---- */
+  var PAY = {
+    website:  '',   // Website $300/mo
+    addon:    '',   // Local Presence Add-On $150/mo
+    complete: ''    // Complete Online Presence $399/mo
+  };
+  var FORMS = {
+    setup:    {url:'https://docs.google.com/forms/d/156GNc6F0faFzaEb4pbDigQA14W1X7u8COW9QnZEnIrQ/viewform', eyebrow:'Step 2', title:'Tell me about your business', steps:true},
+    changes:  {url:'https://docs.google.com/forms/d/1o25e9C4_sv-HbMgoiKzXsMJ7i9OeiWARi30sdQ660xg/viewform', eyebrow:'Anytime', title:'Specials & changes', steps:false},
+    feedback: {url:'https://docs.google.com/forms/d/1vAhmfyhd2umWIPd2U86nKDnaRjLC9hUTGUOdeyP3DkU/viewform', eyebrow:'1 minute', title:'Give feedback', steps:false}
+  };
+  var PLANS = {
+    website:  {name:'Website', price:'$300', note:'No setup fee', desc:'I design and build your website, host it, make the changes you ask for, and check it every month. Includes your own login to edit it anytime.'},
+    addon:    {name:'Local Presence Add-On', price:'$150', note:'Add-on', desc:'Google Business Profile setup and optimization, weekly posts, and review replies you approve first. Added to the Website plan.'},
+    complete: {name:'Complete Online Presence', price:'$399', note:'Save $51/mo', desc:'Everything in Website plus everything in Local Presence, with priority changes and one monthly bill.'}
+  };
+
+  function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); if(v===null) localStorage.removeItem(k); else localStorage.setItem(k,v);}catch(e){return null}}
+  var lastFocus=null;
+  function open(m){lastFocus=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';var c=m.querySelector('.mclose');if(c)c.focus()}
+  function close(m){if(m.id==='formModal'){try{sessionStorage.setItem('cmlw_snooze','1')}catch(e){}}m.classList.remove('open');if(!document.querySelector('.modal.open'))document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+  document.querySelectorAll('.modal').forEach(function(m){
+    m.addEventListener('click',function(e){if(e.target===m||e.target.closest('[data-close]'))close(m)});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var o=document.querySelectorAll('.modal.open');if(o.length)close(o[o.length-1])}});
+
+  // ---- checkout ----
+  var buy=document.getElementById('buyModal'),terms=document.getElementById('termsModal');
+  var agree=document.getElementById('agree'),payBtn=document.getElementById('payBtn'),accepted=false,plan='website';
+  function setAgree(v){accepted=v;agree.classList.toggle('done',v);agree.setAttribute('aria-checked',v);document.getElementById('agreeBox').textContent=v?'✓':'';payBtn.disabled=!v}
+  document.querySelectorAll('[data-plan]').forEach(function(b){b.addEventListener('click',function(){
+    plan=b.getAttribute('data-plan');var P=PLANS[plan];
+    document.getElementById('buyTitle').textContent=P.name;
+    document.getElementById('buyPrice').textContent=P.price;
+    document.getElementById('buyNote').textContent=P.note;
+    document.getElementById('buyDesc').textContent=P.desc;
+    document.getElementById('buyStep1').hidden=false;document.getElementById('buyStep2').hidden=true;document.getElementById('buyFoot').hidden=false;
+    setAgree(false);open(buy);
+  })});
+  function toggleAgree(){ if(accepted){setAgree(false)} else openTerms() }
+  agree.addEventListener('click',toggleAgree);
+  agree.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggleAgree()}});
+
+  // ---- terms popup with scroll lock ----
+  var ts=document.getElementById('termsScroll'),acc=document.getElementById('acceptBtn'),tbar=document.getElementById('tbar'),loaded=false;
+  function checkScroll(){
+    var max=ts.scrollHeight-ts.clientHeight, p=max<=0?1:ts.scrollTop/max;
+    tbar.style.width=Math.min(100,p*100)+'%';
+    if(loaded&&ts.scrollTop+ts.clientHeight>=ts.scrollHeight-8){acc.disabled=false;acc.textContent='I accept the Terms'}
+  }
+  ts.addEventListener('scroll',checkScroll,{passive:true});
+  function openTerms(){
+    acc.disabled=true;acc.textContent='Scroll to the bottom to accept';ts.scrollTop=0;tbar.style.width='0';
+    open(terms);
+    if(loaded){checkScroll();return}
+    fetch('terms.html',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){
+      var d=new DOMParser().parseFromString(t,'text/html'),m=d.querySelector('main');
+      ts.innerHTML=m.innerHTML;loaded=true;checkScroll();
+    }).catch(function(){
+      ts.innerHTML='<p style="padding-top:18px">Couldn\'t load the Terms here. <a href="terms.html" target="_blank" rel="noopener">Open the Terms of Service in a new tab</a>, read them, then come back and scroll down.</p><div style="height:40vh"></div><p>End of notice.</p>';loaded=true;checkScroll();
+    });
+  }
+  acc.addEventListener('click',function(){close(terms);setAgree(true);payBtn.focus()});
+
+  function goPay(){
+    var url=PAY[plan];
+    if(!url){window.location.href='mailto:cam.localmarketing@gmail.com?subject='+encodeURIComponent('Sign me up: '+PLANS[plan].name)+'&body='+encodeURIComponent('I accepted the Terms and want to sign up for '+PLANS[plan].name+'.');return}
+    store('cmlw_pending',plan+'|'+Date.now());
+    window.open(url,'_blank','noopener');
+    document.getElementById('buyStep1').hidden=true;document.getElementById('buyStep2').hidden=false;document.getElementById('buyFoot').hidden=true;
+  }
+  payBtn.addEventListener('click',function(){if(accepted)goPay()});
+  document.getElementById('reopen').addEventListener('click',function(e){e.preventDefault();var u=PAY[plan];if(u)window.open(u,'_blank','noopener')});
+
+  // ---- in-site forms ----
+  var fm=document.getElementById('formModal'),ff=document.getElementById('formFrame'),current='setup';
+  function openForm(key){
+    current=key;var F=FORMS[key];
+    document.getElementById('formEyebrow').textContent=F.eyebrow;
+    document.getElementById('formTitle').textContent=F.title;
+    document.getElementById('formSteps').hidden=!F.steps;
+    document.getElementById('formDone').textContent=key==='setup'?"I've submitted it":'Done';
+    var src=F.url+'?embedded=true'; if(ff.getAttribute('src')!==src) ff.setAttribute('src',src);
+    open(fm);
+  }
+  document.querySelectorAll('[data-form]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openForm(a.getAttribute('data-form'))})});
+  document.getElementById('formDone').addEventListener('click',function(){if(current==='setup')store('cmlw_setup_done','1');close(fm)});
+
+  // ---- after payment: show the questionnaire here ----
+  function checkPaid(){
+    var sn=null;try{sn=sessionStorage.getItem('cmlw_snooze')}catch(e){}
+    if(store('cmlw_paid')&&!store('cmlw_setup_done')&&!sn&&!fm.classList.contains('open')){
+      if(buy.classList.contains('open'))close(buy);
+      store('cmlw_pending',null);
+      openForm('setup');
+    }
+  }
+  window.addEventListener('storage',function(e){if(e.key==='cmlw_paid'){try{sessionStorage.removeItem('cmlw_snooze')}catch(x){}checkPaid()}});
+  window.addEventListener('focus',checkPaid);
+  setInterval(checkPaid,15000);
+  if(location.hash==='#welcome'){try{sessionStorage.removeItem('cmlw_snooze')}catch(x){}setTimeout(checkPaid,600)} else checkPaid();
 })();
 </script>
 </body>
