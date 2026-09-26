@@ -289,7 +289,7 @@ footer a:hover{color:var(--gold2)}
     <div class="sec-head reveal">
       <div class="eyebrow">Simple pricing</div>
       <h2>Three packages. <em>No long contracts.</em></h2>
-      <p>One monthly price for your website, with Google care when you're ready. No setup fee. Full refund if you cancel before your site goes live.</p>
+      <p>A website, Google care, or both. No setup fee, and a full refund if you cancel before your site goes live.</p>
     </div>
     <div class="plans">
       <div class="plan reveal d1">
@@ -307,8 +307,8 @@ footer a:hover{color:var(--gold2)}
         <div class="fine">No setup fee. 3-month minimum once your site is live, then month-to-month.</div>
       </div>
       <div class="plan reveal d2">
-        <h3>Local Presence<br>Add-On</h3>
-        <div class="kind">Monthly add-on</div>
+        <h3>Local<br>Presence</h3>
+        <div class="kind">Monthly · Standalone</div>
         <div class="price"><b>$150</b><span>/ month</span></div>
         <ul>
           <li>Google Business Profile setup &amp; optimization</li>
@@ -317,8 +317,8 @@ footer a:hover{color:var(--gold2)}
           <li>Photo, hours and specials updates anytime</li>
         </ul>
         <button type="button" class="btn btn-ghost" data-plan="addon">Get this package</button>
-        <a class="ask" href="mailto:cam.localmarketing@gmail.com?subject=Local%20Presence%20Add-On">Questions? Ask me first</a>
-        <div class="fine">Added to the Website plan. Cancel anytime.</div>
+        <a class="ask" href="mailto:cam.localmarketing@gmail.com?subject=Local%20Presence">Questions? Ask me first</a>
+        <div class="fine">Works on its own with your current website. Cancel anytime. Works even better with my Website plan: get both in Complete Online Presence.</div>
       </div>
       <div class="plan feat reveal d3">
         <div class="badge">Best value</div>
@@ -382,7 +382,7 @@ footer a:hover{color:var(--gold2)}
   <section class="block" id="faq">
     <div class="sec-head reveal"><div class="eyebrow">Questions</div><h2>Good to <em>know.</em></h2></div>
     <div class="reveal">
-      <details><summary>Do I have to sign a contract?</summary><p>No long contracts. Once your site is live, there's a 3-month minimum. After that, it's month-to-month: cancel anytime from the billing page, and it stops at the end of the month you've paid for. The Local Presence Add-On can be canceled anytime.</p></details>
+      <details><summary>Do I have to sign a contract?</summary><p>No long contracts. Once your site is live, there's a 3-month minimum. After that, it's month-to-month: cancel anytime from the billing page, and it stops at the end of the month you've paid for. The Local Presence plan can be canceled anytime.</p></details>
       <details><summary>Will you post anything without asking me?</summary><p>No. Every post and review reply is sent to you first, by text or email, whichever you prefer. Nothing goes live until you approve it.</p></details>
       <details><summary>Do you need my Google password?</summary><p>Never. You add me as a manager on your Google Business Profile, which takes 2 minutes, and you can remove me at any time.</p></details>
       <details><summary>Can you get me more reviews?</summary><p>I'll help you ask real customers for reviews the right way, with a simple link and a QR code. I never write or buy fake reviews.</p></details>
@@ -564,9 +564,9 @@ footer a:hover{color:var(--gold2)}
 (function(){
   /* ---- SETTINGS: paste your live Stripe payment links here ---- */
   var PAY = {
-    website:  '',   // Website $300/mo
-    addon:    '',   // Local Presence Add-On $150/mo
-    complete: ''    // Complete Online Presence $399/mo
+    website:  'https://buy.stripe.com/aFa9AM5JX9sN007evC8Vi02',   // Website $300/mo
+    addon:    'https://buy.stripe.com/eVq9AMa0dbAVeV11IQ8Vi03',   // Local Presence $150/mo
+    complete: 'https://buy.stripe.com/00w6oA4FT9sN8wDevC8Vi04'    // Complete Online Presence $399/mo
   };
   var FORMS = {
     setup:    {url:'https://docs.google.com/forms/d/156GNc6F0faFzaEb4pbDigQA14W1X7u8COW9QnZEnIrQ/viewform', eyebrow:'Step 2', title:'Tell me about your business', steps:true},
@@ -575,7 +575,7 @@ footer a:hover{color:var(--gold2)}
   };
   var PLANS = {
     website:  {name:'Website', price:'$300', note:'No setup fee', desc:'I design and build your website, host it, make the changes you ask for, and check it every month. Includes your own login to edit it anytime.'},
-    addon:    {name:'Local Presence Add-On', price:'$150', note:'Add-on', desc:'Google Business Profile setup and optimization, weekly posts, and review replies you approve first. Added to the Website plan.'},
+    addon:    {name:'Local Presence', price:'$150', note:'Cancel anytime', desc:'Google Business Profile setup and optimization, weekly posts, and review replies you approve first. Works with the website you already have.'},
     complete: {name:'Complete Online Presence', price:'$399', note:'Save $51/mo', desc:'Everything in Website plus everything in Local Presence, with priority changes and one monthly bill.'}
   };
 
