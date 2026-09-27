@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Green Acre Lawn Co. | Sample site</title>
+<meta name="description" content="Sample website by Camron McClain Local Websites. Business is fictional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g9:#0f2e1c;--g7:#1f5a36;--g5:#2f8a4f;--g3:#8fd19e;--g1:#eef7f0;--cream:#fbfaf5;--ink:#15201a;--muted:#5b6b61;--line:#dfe8e1;--sun:#f4c64e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.1}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.sample{background:var(--sun);color:#3a2c00;text-align:center;font-size:13px;padding:7px 16px;font-weight:500}
+header{position:sticky;top:0;z-index:20;background:rgba(251,250,245,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:20px;color:var(--g9);text-decoration:none}
+.brand svg{width:34px;height:34px}
+.links{display:flex;gap:26px;font-size:15px;font-weight:500}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--g7)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .25s,color .25s,transform .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--g5);color:#fff}
+.btn-main:hover{background:var(--g7)}
+.btn-line{border-color:#fff;color:#fff}
+.btn-line:hover{background:#fff;color:var(--g9)}
+.btn-dark{border-color:var(--g7);color:var(--g7);background:transparent}
+.btn-dark:hover{background:var(--g7);color:#fff}
+@media(max-width:820px){.links{display:none}.nav .btn{padding:10px 16px;font-size:14px}}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#bfe6f5 0%,#eaf6ee 70%);color:#fff}
+.hero-art{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;padding:90px 20px 230px;text-align:center}
+.hero .tag{display:inline-block;background:rgba(15,46,28,.75);padding:6px 14px;border-radius:99px;font-size:13px;font-weight:500;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,7vw,76px);color:var(--g9);text-shadow:0 2px 0 rgba(255,255,255,.4)}
+.hero p{max-width:600px;margin:18px auto 30px;font-size:clamp(16px,2.2vw,19px);color:var(--g9);font-weight:500}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero .btn-line{border-color:var(--g9);color:var(--g9)}
+.hero .btn-line:hover{background:var(--g9);color:#fff}
+
+.trust{background:var(--g9);color:#dff0e4}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:22px 20px;text-align:center;font-size:14px}
+.trust b{display:block;color:#fff;font-size:17px;font-family:'Fraunces',serif}
+@media(max-width:720px){.trust .wrap{grid-template-columns:repeat(2,1fr)}}
+
+section{padding:90px 0}
+.head{max-width:640px;margin-bottom:44px}
+.eyebrow{color:var(--g5);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.head h2{font-size:clamp(32px,4.6vw,48px);color:var(--g9);margin-top:10px}
+.head p{color:var(--muted);margin-top:12px}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:8px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(15,46,28,.35);border-color:var(--g3)}
+.svc .ic{width:44px;height:44px;border-radius:12px;background:var(--g1);display:grid;place-items:center;color:var(--g5)}
+.svc h3{font-size:22px;color:var(--g9);margin-top:6px}
+.svc p{color:var(--muted);font-size:15px;flex:1}
+.svc .price{font-weight:600;color:var(--g7)}
+.svc .price span{color:var(--muted);font-weight:400;font-size:14px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ph{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--g1)}
+.ph svg{width:100%;height:100%;display:block}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(transparent,rgba(15,46,28,.85));color:#fff;font-size:14px;font-weight:500}
+.ph figcaption small{display:block;font-weight:400;opacity:.85}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}}
+.note{margin-top:14px;color:var(--muted);font-size:13px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+.card h3{font-size:24px;color:var(--g9);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--g1);color:var(--g7);padding:7px 14px;border-radius:99px;font-weight:500;font-size:14px}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:8px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;color:var(--muted)}
+.hours tr.today td{color:var(--g7);font-weight:600}
+
+.quote{background:var(--g7);color:#fff;border-radius:26px;padding:48px;display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
+@media(max-width:820px){.quote{grid-template-columns:1fr;padding:30px 22px}}
+.quote h2{font-size:clamp(30px,4vw,42px)}
+.quote p{opacity:.9;margin-top:12px}
+.quote .big{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.quote .btn-main{background:#fff;color:var(--g7)}
+.quote .btn-main:hover{background:var(--sun);color:var(--g9)}
+form{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+label{font-size:13px;font-weight:500;opacity:.9;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
+select option{color:#000}
+textarea{min-height:90px;resize:vertical}
+form .btn{background:var(--sun);color:var(--g9)}
+form .btn:hover{background:#fff}
+
+footer{padding:40px 0 90px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none}
+.callbar .btn{width:100%;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+@media(max-width:720px){.callbar{display:block}}
+</style>
+</head>
+<body>
+<div class="sample">Sample website by Camron McClain Local Websites. Green Acre Lawn Co. is a made-up business.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Green Acre Lawn Co. home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#2f8a4f"/><path d="M9 28c3-7 6-10 11-12-2 4-2 7 0 12M20 28c1-8 4-13 11-16-4 6-5 10-4 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span data-f="name"></span>
+    </a>
+    <nav class="links"><a href="#services">Services</a><a href="#work">Our work</a><a href="#area">Service area</a><a href="#quote">Free quote</a></nav>
+    <a class="btn btn-main" data-f="call">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <svg class="hero-art" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="1320" cy="90" r="55" fill="#fde68a"/>
+      <path d="M0 560 Q360 500 720 545 T1440 530 V700 H0Z" fill="#6cc083"/>
+      <path d="M0 600 Q420 550 820 595 T1440 580 V700 H0Z" fill="#3fa05f"/>
+      <path d="M0 640 Q500 600 900 635 T1440 625 V700 H0Z" fill="#2f8a4f"/>
+      <g fill="#1f5a36"><circle cx="110" cy="505" r="38"/><rect x="103" y="520" width="14" height="50"/><circle cx="1330" cy="490" r="44"/><rect x="1322" y="505" width="16" height="55"/></g>
+    </svg>
+    <div class="wrap">
+      <span class="tag" data-f="areaLine"></span>
+      <h1 data-f="headline"></h1>
+      <p data-f="subhead"></p>
+      <div class="ctas"><a class="btn btn-main" data-f="call">Call now</a><a class="btn btn-line" href="#quote">Get a free quote</a></div>
+    </div>
+  </section>
+
+  <div class="trust"><div class="wrap" id="trust"></div></div>
+
+  <section id="services"><div class="wrap">
+    <div class="head"><div class="eyebrow">Services</div><h2>Everything your yard needs</h2><p>Clear starting prices. Final price depends on yard size, and every quote is free.</p></div>
+    <div class="services" id="svc"></div>
+  </div></section>
+
+  <section id="work" style="background:#fff"><div class="wrap">
+    <div class="head"><div class="eyebrow">Our work</div><h2>Recent yards</h2><p>Real photos of real jobs go here, each with a name, a short description and a price.</p></div>
+    <div class="gallery" id="gal"></div>
+    <p class="note">Sample site: illustrations stand in for the client's own photos.</p>
+  </div></section>
+
+  <section id="area"><div class="wrap split">
+    <div class="card"><h3>Service area</h3><div class="chips" id="areas"></div><p class="note">Not listed? Call and ask. We may still come to you.</p></div>
+    <div class="card"><h3>Hours</h3><table class="hours" id="hours"></table></div>
+  </div></section>
+
+  <section id="quote" style="padding-top:0"><div class="wrap">
+    <div class="quote">
+      <div>
+        <h2>Get your free quote</h2>
+        <p>Tell us about your yard and we'll get back to you within one business day. Prefer to talk? Call or text anytime during business hours.</p>
+        <div class="big"><a class="btn btn-main" data-f="call">Call now</a><a class="btn btn-line" data-f="text">Text us</a></div>
+      </div>
+      <form id="qf">
+        <div class="row"><label>Name<input name="name" required placeholder="Your name"></label><label>Phone<input name="phone" type="tel" required placeholder="(555) 555-5555"></label></div>
+        <label>Address or neighborhood<input name="address" placeholder="Street or neighborhood"></label>
+        <label>Service<select name="service" id="svcSel"></select></label>
+        <label>Anything else?<textarea name="notes" placeholder="Yard size, gate code, best time to reach you…"></textarea></label>
+        <button class="btn" type="submit">Send my quote request</button>
+      </form>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>© <span id="yr"></span> <span data-f="name"></span> · <span data-f="phoneText"></span></div>
+  <div>Sample website by Camron McClain Local Websites. Business is fictional.</div>
+</div></footer>
+<div class="callbar"><a class="btn btn-main" data-f="call">Call now</a></div>
+
+<script>
+/* ===== Everything below comes from the client's setup questionnaire ===== */
+var SITE = {
+  name: "Green Acre Lawn Co.",
+  headline: "A greener lawn, without the work",
+  subhead: "Weekly mowing, clean edges and tidy beds for homes in Mansfield and nearby. Locally owned. Free quotes.",
+  phone: "(555) 010-4821",          // fake number for the sample
+  email: "hello@example.com",       // quote requests go here
+  areaLine: "Serving Mansfield & South Arlington",
+  trust: [["Locally owned","Mansfield, TX"],["Free quotes","No obligation"],["Weekly or one-time","Your choice"],["Licensed & insured","Sample text"]],
+  services: [
+    {name:"Weekly mowing", desc:"Mow, edge and blow every week so your yard always looks fresh.", price:"$45", unit:"/ visit"},
+    {name:"Edging & trimming", desc:"Crisp lines along driveways, sidewalks and beds.", price:"$25", unit:"/ visit"},
+    {name:"Flower bed cleanup", desc:"Weeding, fresh mulch and a clean border.", price:"$120", unit:"starting"},
+    {name:"Hedge trimming", desc:"Shaped shrubs and hedges, clippings hauled away.", price:"$75", unit:"starting"},
+    {name:"Leaf removal", desc:"Fall cleanup for lawns and beds, bagged or mulched.", price:"$90", unit:"starting"},
+    {name:"Sod installation", desc:"New sod for bare spots or a full yard refresh.", price:"$1.50", unit:"/ sq ft"}
+  ],
+  gallery: [
+    {name:"Front yard refresh", desc:"Mansfield · weekly plan", price:"$45/visit", hue:0},
+    {name:"New sod install", desc:"Arlington · 1,200 sq ft", price:"$1,800", hue:1},
+    {name:"Bed cleanup & mulch", desc:"Kennedale · one-time", price:"$240", hue:2},
+    {name:"Hedge shaping", desc:"Grand Prairie · 14 shrubs", price:"$150", hue:1},
+    {name:"Fall leaf cleanup", desc:"Midlothian · half acre", price:"$180", hue:3},
+    {name:"Backyard edging", desc:"Mansfield · monthly", price:"$25/visit", hue:0}
+  ],
+  areas: ["Mansfield","Arlington","Grand Prairie","Kennedale","Midlothian"],
+  hours: [["Monday","7am – 6pm"],["Tuesday","7am – 6pm"],["Wednesday","7am – 6pm"],["Thursday","7am – 6pm"],["Friday","7am – 6pm"],["Saturday","8am – 2pm"],["Sunday","Closed"]]
+};
+/* ======================================================================= */
+
+(function(){
+  var S=SITE, digits=S.phone.replace(/\D/g,'');
+  document.querySelectorAll('[data-f]').forEach(function(el){
+    var f=el.getAttribute('data-f');
+    if(f==='call'){el.href='tel:+1'+digits}
+    else if(f==='text'){el.href='sms:+1'+digits}
+    else if(f==='phoneText'){el.textContent=S.phone}
+    else if(S[f]!==undefined){el.textContent=S[f]}
+  });
+  document.getElementById('trust').innerHTML=S.trust.map(function(t){return '<div><b>'+t[0]+'</b>'+t[1]+'</div>'}).join('');
+  var leaf='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14zM5 19l7-7"/></svg>';
+  document.getElementById('svc').innerHTML=S.services.map(function(s){
+    return '<div class="svc"><div class="ic">'+leaf+'</div><h3>'+s.name+'</h3><p>'+s.desc+'</p><div class="price">From '+s.price+' <span>'+s.unit+'</span></div></div>'}).join('');
+  var pal=[["#7cc98f","#3f9d5f","#2c7a47"],["#9ad6a5","#58b06f","#2f8a4f"],["#c7a27a","#6fb07b","#3b7d4f"],["#e0a458","#b8763a","#4f8a4f"]];
+  document.getElementById('gal').innerHTML=S.gallery.map(function(g){var c=pal[g.hue%pal.length];
+    return '<figure class="ph"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#dff1f7"/><path d="M0 170 Q120 130 240 160 T400 150 V300 H0Z" fill="'+c[0]+'"/><path d="M0 210 Q140 170 280 205 T400 195 V300 H0Z" fill="'+c[1]+'"/><path d="M0 250 Q160 220 300 250 T400 240 V300 H0Z" fill="'+c[2]+'"/><circle cx="330" cy="70" r="28" fill="#fde68a"/></svg><figcaption>'+g.name+' · '+g.price+'<small>'+g.desc+'</small></figcaption></figure>'}).join('');
+  document.getElementById('areas').innerHTML=S.areas.map(function(a){return '<span>'+a+'</span>'}).join('');
+  var today=(new Date().getDay()+6)%7;
+  document.getElementById('hours').innerHTML=S.hours.map(function(h,i){return '<tr'+(i===today?' class="today"':'')+'><td>'+h[0]+'</td><td>'+h[1]+'</td></tr>'}).join('');
+  document.getElementById('svcSel').innerHTML=S.services.map(function(s){return '<option>'+s.name+'</option>'}).join('')+'<option>Something else</option>';
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  document.getElementById('qf').addEventListener('submit',function(e){
+    e.preventDefault();var d=new FormData(this),body='';
+    d.forEach(function(v,k){body+=k+': '+v+'\n'});
+    location.href='mailto:'+S.email+'?subject='+encodeURIComponent('Quote request: '+d.get('service'))+'&body='+encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
